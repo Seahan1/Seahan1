@@ -2,4 +2,4 @@
 - 👀 I’m interested in cats
 - 🌱 I’m currently learning how to play with cats
 - 💞️ I’m looking to collaborate on having fun with cats
-
+- o(╥﹏╥)o But unfortunately I'm currently a rookie hardware engineer, and i won't program anymore.
