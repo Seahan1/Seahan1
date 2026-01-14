@@ -16,4 +16,5 @@ Currently exploring advanced multi-camera setups and improving real-time process
 
 Want to connect or see more of my work?  
 Feel free to reach out or check my repositories!
-
+![General](general.svg)
+![heat map and wakatime](heat_waka.svg)
