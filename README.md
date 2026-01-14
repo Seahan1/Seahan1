@@ -1,6 +1,6 @@
 # Hi there 👋 I'm Seahan1
 
-> **slowpoke** — taking the time to get my fxxking life right!
+> just a **slowpoke**
 
 ## 👨‍💻 About Me
 
