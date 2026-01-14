@@ -17,7 +17,6 @@ Currently exploring advanced multi-camera setups and improving real-time process
 Want to connect or see more of my work?  
 Feel free to reach out or check my repositories!
 
-![Metrics](https://github.com/你的用户名/你的用户名/blob/main/github-metrics.svg)
+![Metrics](https://github.com/Seahan1/Seahan1/blob/main/github-metrics.svg)
 
-![General](general.svg)
-![heat map and wakatime](heatmap.svg)
+
