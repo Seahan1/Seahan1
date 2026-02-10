@@ -1,4 +1,4 @@
-# Hi there 👋 I'm Seahan1
+# Hi there 👋 I'm Han
 
 > just a **slowpoke**
 
