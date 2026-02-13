@@ -17,11 +17,6 @@ jobs:
         with:
           token: ${{ secrets.METRICS_TOKEN }}
 
-          # 📗 Classic template
-          template: classic
-          config_timezone: Asia/Beijing
-          base: header, metadata
-
           # 📅 Half year calendar
           plugin_isocalendar: yes
           plugin_isocalendar_duration: half-year
