@@ -30,7 +30,6 @@ jobs:
           plugin_languages_details: bytes-size, percentage
           plugin_languages_recent_load: 400
           plugin_languages_recent_days: 30
-          # 如果想更准确识别你自己的提交，可以补上：
           # commits_authoring: Seahan1, Seahan1@users.noreply.github.com
 
           # 💡 Coding habits and activity
