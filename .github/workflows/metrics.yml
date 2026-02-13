@@ -16,7 +16,9 @@ jobs:
       - uses: lowlighter/metrics@latest
         with:
           token: ${{ secrets.METRICS_TOKEN }}
-
+          # 📗 Classic template
+          template: classic
+          base: header, metadata
           # 📅 Half year calendar
           plugin_isocalendar: yes
           plugin_isocalendar_duration: half-year
