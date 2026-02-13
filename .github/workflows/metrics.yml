@@ -1,41 +1,48 @@
 name: Metrics
+
 on:
   # 每天北京时间 00:00 更新
-  schedule: [{cron: "0 16 * * *"}]
-  # 允许手动触发更新
+  schedule: [{ cron: "0 16 * * *" }]
   workflow_dispatch:
-  # 当主分支有 push 时更新
-  push: {branches: ["master", "main"]}
+  push: { branches: ["master", "main"] }
+
 jobs:
   github-metrics:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+
     steps:
       - uses: lowlighter/metrics@latest
         with:
-          # 你的 GitHub 用户名（如果放在同名仓库可自动识别，否则需手动填）
-          # user: your-username
-          # 使用刚才配置的 Token
           token: ${{ secrets.METRICS_TOKEN }}
-          # 基础设置
+
+          # 📗 Classic template
           template: classic
-          base: header, activity, community, repositories, metadata
           config_timezone: Asia/Beijing
-          
-         
-          # 插件：日历热力图 (图片中中间那个绿色的格子图)
+          base: header, metadata
+
+          # 📅 Half year calendar
           plugin_isocalendar: yes
           plugin_isocalendar_duration: half-year
-          # 插件：Issue 和 PR 状态 (图片底部的条形图)
-          plugin_followup: yes
-          plugin_followup_sections: repositories
-          # 插件：语言分析 (通常大家都会开，虽然你提供的 SVG 里没截全)
-          plugin_topics: yes
-          plugin_topics_sort: stars
-          plugin_topics_mode: starred
-          plugin_topics_limit: 15
+
+          # 📊 Recently used (基于最近活动分析语言)
           plugin_languages: yes
+          plugin_languages_indepth: yes
+          plugin_languages_sections: recently-used
           plugin_languages_ignored: >-
             html, css
           plugin_languages_details: bytes-size, percentage
+          plugin_languages_recent_load: 400
+          plugin_languages_recent_days: 30
+          # 如果想更准确识别你自己的提交，可以补上：
+          # commits_authoring: Seahan1, Seahan1@users.noreply.github.com
+
+          # 💡 Coding habits and activity
+          plugin_habits: yes
+          plugin_habits_facts: yes
+          plugin_habits_charts: yes
+          plugin_habits_from: 400
+          plugin_habits_days: 30
+          plugin_habits_charts_type: graph
+          plugin_habits_trim: yes
