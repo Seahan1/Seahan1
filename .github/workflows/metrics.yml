@@ -32,11 +32,3 @@ jobs:
             html, css 
           plugin_languages_details: bytes-size, percentage
 
-          # 💡 Coding habits and activity
-          plugin_habits: yes
-          plugin_habits_facts: yes
-          plugin_habits_charts: yes
-          plugin_habits_from: 400
-          plugin_habits_days: 30
-          plugin_habits_charts_type: graph
-          plugin_habits_trim: yes
