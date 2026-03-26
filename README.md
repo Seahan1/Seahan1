@@ -5,7 +5,7 @@
 ## 👨‍💻 About Me
 ---
 - Developer focused on **camera driver**, sensor technology, and embedded systems
-- Skilled in **Python** and **C++**
+- Skilled in **Python** / **C++** and video game
 
 
 
