@@ -9,6 +9,6 @@
 
 
 
-<img src="github-metrics.svg" width="400" alt="Weekly rhythm">
+<img src="github-metrics.svg" width="400" alt="Animated GitHub statistics">
 
 

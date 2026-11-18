@@ -1,4 +1,4 @@
-name: Weekly rhythm
+name: OLED GitHub stats
 
 on:
   # 每天北京时间 00:00 更新
@@ -19,11 +19,13 @@ jobs:
         run: |
           cat > "$RUNNER_TEMP/cool-readme.yml" <<'YAML'
           user: Seahan1
-          show: [weekly]
+          show: [summary]
+          count:
+            private: false
           look:
             style: oled
-            color: purple
-            background: '0b0710'
+            color: green
+            background: '070d09'
           YAML
 
       - uses: pedrocatalao/github-cool-readme@909e532bf5d2847b26d156b91c0d086e6e7781ae # v1.8.1
@@ -32,13 +34,13 @@ jobs:
           config: ${{ runner.temp }}/cool-readme.yml
           output: ${{ runner.temp }}/cool-readme
 
-      - name: Publish Weekly rhythm card
+      - name: Publish OLED GitHub stats
         run: |
-          cp "$RUNNER_TEMP/cool-readme/weekly-dark.svg" github-metrics.svg
+          cp "$RUNNER_TEMP/cool-readme/summary-dark.svg" github-metrics.svg
           git add -- github-metrics.svg
           git diff --cached --quiet && exit 0
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git commit -m 'Update Weekly rhythm card'
+          git commit -m 'Update OLED GitHub stats'
           git push
 
