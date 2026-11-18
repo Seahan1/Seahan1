@@ -37,12 +37,14 @@ jobs:
       - name: Publish OLED GitHub stats
         run: |
           cp "$RUNNER_TEMP/cool-readme/summary-dark.svg" github-metrics.svg
-          version=$(git hash-object github-metrics.svg)
-          sed -i -E "s@(github-metrics\.svg\?v=)[[:xdigit:]]+@\1${version}@" README.md
-          git add -- github-metrics.svg README.md
+          git add -- github-metrics.svg
           git diff --cached --quiet && exit 0
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git commit -m 'Update OLED GitHub stats'
+          revision=$(git rev-parse HEAD)
+          sed -i -E "s@(https://raw\.githubusercontent\.com/Seahan1/Seahan1/)[0-9a-f]{40}(/github-metrics\.svg)@\1${revision}\2@" README.md
+          git add -- README.md
+          git commit -m 'Link profile to the new OLED card'
           git push
 
