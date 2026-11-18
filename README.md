@@ -9,6 +9,6 @@
 
 
 
-<img src="https://raw.githubusercontent.com/Seahan1/Seahan1/1ff8566cad6c10fe4e4f38337a8348c6cbe438cc/github-metrics.svg" width="400" alt="Animated GitHub statistics">
+<img src="https://raw.githubusercontent.com/Seahan1/Seahan1/12e39983b1f7903e1de33d95e1fca7323ce5c053/github-metrics.svg" width="400" alt="Animated GitHub statistics">
 
 
