@@ -9,6 +9,6 @@
 
 
 
-![Metrics](https://github.com/Seahan1/Seahan1/blob/main/github-metrics.svg)
+<img src="github-metrics.svg" width="400" alt="Weekly rhythm">
 
 

@@ -1,4 +1,4 @@
-name: Metrics
+name: Weekly rhythm
 
 on:
   # 每天北京时间 00:00 更新
@@ -13,22 +13,32 @@ jobs:
       contents: write
 
     steps:
-      - uses: lowlighter/metrics@latest
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Configure OLED card
+        run: |
+          cat > "$RUNNER_TEMP/cool-readme.yml" <<'YAML'
+          user: Seahan1
+          show: [weekly]
+          look:
+            style: oled
+            color: purple
+            background: '0b0710'
+          YAML
+
+      - uses: pedrocatalao/github-cool-readme@909e532bf5d2847b26d156b91c0d086e6e7781ae # v1.8.1
         with:
           token: ${{ secrets.METRICS_TOKEN }}
-          # 📗 Classic template
-          template: classic
-          base: header, metadata
-          # 📅 Half year calendar
-          plugin_isocalendar: yes
-          plugin_isocalendar_duration: half-year
+          config: ${{ runner.temp }}/cool-readme.yml
+          output: ${{ runner.temp }}/cool-readme
 
-          plugin_topics: yes 
-          plugin_topics_sort: stars 
-          plugin_topics_mode: starred 
-          plugin_topics_limit: 15 
-          plugin_languages: yes 
-          plugin_languages_ignored: >- 
-            html, css 
-          plugin_languages_details: bytes-size, percentage
+      - name: Publish Weekly rhythm card
+        run: |
+          cp "$RUNNER_TEMP/cool-readme/weekly-dark.svg" github-metrics.svg
+          git add -- github-metrics.svg
+          git diff --cached --quiet && exit 0
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Update Weekly rhythm card'
+          git push
 
