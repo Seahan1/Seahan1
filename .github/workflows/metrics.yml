@@ -37,7 +37,9 @@ jobs:
       - name: Publish OLED GitHub stats
         run: |
           cp "$RUNNER_TEMP/cool-readme/summary-dark.svg" github-metrics.svg
-          git add -- github-metrics.svg
+          version=$(git hash-object github-metrics.svg)
+          sed -i -E "s@(github-metrics\.svg\?v=)[[:xdigit:]]+@\1${version}@" README.md
+          git add -- github-metrics.svg README.md
           git diff --cached --quiet && exit 0
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
